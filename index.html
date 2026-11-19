@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +19,7 @@ body.dark{--bg:#1d211c;--card:#272d26;--text:#f1eadf;--muted:#b7b0a3;--green:#91
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
-img{max-width:100%}
+img{max-width:100%;display:block}
 .container{width:min(1160px,92%);margin:auto}
 .section{padding:85px 0}
 .section-title{text-align:center;font-family:Georgia,serif;font-size:clamp(30px,4vw,46px);font-weight:400;margin-bottom:12px}
@@ -33,13 +32,14 @@ img{max-width:100%}
 .btn-light{background:var(--card);color:var(--text)}
 header{height:76px;position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
 .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{font-family:Georgia,serif;font-size:27px;letter-spacing:2px;color:var(--green);white-space:nowrap}
+.brand{display:flex;align-items:center;gap:12px;font-family:Georgia,serif;font-size:27px;letter-spacing:2px;color:var(--green);white-space:nowrap}
+.brand img{width:34px;height:34px;object-fit:contain;border-radius:50%}
 .brand small{display:block;font-family:Arial;font-size:9px;letter-spacing:4px;text-align:center;margin-top:-6px}
 .nav-links{display:flex;align-items:center;gap:23px;font-size:13px}
 .nav-links a{transition:var(--transition)}
 .nav-links a:hover{color:var(--green)}
 .nav-actions{display:flex;gap:9px}
-.icon-btn{border:1px solid var(--border);background:var(--card);color:var(--text);width:40px;height:40px;border-radius:50%;position:relative}
+.icon-btn{border:1px solid var(--border);background:var(--card);color:var(--text);width:40px;height:40px;border-radius:50%;position:relative;display:grid;place-items:center;font-size:16px}
 .cart-badge{position:absolute;top:-4px;right:-5px;background:var(--green);color:white;border-radius:50%;font-size:10px;padding:3px 6px}
 .menu-btn{display:none}
 .hero{min-height:620px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,#d9dfd0,#f4eee3 55%,#e6d5bd)}
@@ -52,15 +52,7 @@ body.dark .hero{background:linear-gradient(120deg,#333f32,#34312a)}
 body.dark .hero p{color:var(--muted)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .hero-art{min-height:420px;border-radius:48% 48% 20px 20px;background:linear-gradient(140deg,#a6b395,#e9d8be);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-art:before{content:"";width:70%;height:70%;border:1px solid #ffffff88;border-radius:50%;position:absolute}
-.hero-art:after{content:"";width:48%;height:48%;border:1px solid #ffffff66;border-radius:50%;position:absolute}
-.hero-logo{z-index:2;text-align:center;color:#43573e}
-.hero-logo span{font-size:85px;display:block}
-.hero-logo strong{font-family:Georgia,serif;font-size:35px;letter-spacing:3px;font-weight:400}
-.hero-logo small{letter-spacing:5px;font-size:10px}
-.floating{position:absolute;font-size:55px;animation:float 5s ease-in-out infinite}
-.f1{top:13%;left:15%}.f2{right:13%;bottom:16%;animation-delay:1.3s}
-@keyframes float{50%{transform:translateY(-16px) rotate(5deg)}}
+.hero-art img{max-width:70%;border-radius:50%;border:1px solid #ffffff88}
 .marquee{background:var(--green);color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0;letter-spacing:2px;font-size:12px}
 .marquee span{display:inline-block;animation:marquee 28s linear infinite}
 @keyframes marquee{to{transform:translateX(-50%)}}
@@ -72,7 +64,7 @@ body.dark .hero p{color:var(--muted)}
 .collection>*{z-index:1}
 .collection.c1{background:radial-gradient(circle at 70% 20%,#b48a57,#455d42)}
 .collection.c2{background:radial-gradient(circle at 70% 20%,#d5a56a,#65794f)}
-.collection .plant{position:absolute;right:10%;top:10%;font-size:100px;opacity:.8}
+.collection .art{position:absolute;right:8%;top:8%;width:120px;height:120px;object-fit:contain;opacity:.9}
 .collection h3{font:38px Georgia,serif;margin:8px 0}
 .collection p{max-width:400px}
 .collection .btn{align-self:start;margin-top:18px}
@@ -85,10 +77,9 @@ body.dark .hero p{color:var(--muted)}
 .product-image{height:270px;background:linear-gradient(135deg,#e9e5da,#d5ddce);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .product-image img{width:100%;height:100%;object-fit:contain;transition:.5s;padding:12px}
 .product:hover img{transform:scale(1.04)}
-.product-image .fallback{font-size:62px}
 .product-tag{position:absolute;top:12px;left:12px;background:var(--green);color:white;font-size:10px;padding:5px 9px;border-radius:30px}
-.heart{position:absolute;right:12px;top:12px;border:0;background:var(--card);color:var(--text);border-radius:50%;width:35px;height:35px}
-.heart.active{color:#c55b63}
+.fav{position:absolute;right:12px;top:12px;border:0;background:var(--card);color:var(--text);border-radius:50%;width:35px;height:35px;display:grid;place-items:center;font-size:14px}
+.fav.active{color:#c55b63}
 .product-body{padding:18px}
 .product-body small{color:var(--green);font-weight:bold}
 .product-body h3{font:20px Georgia,serif;margin:5px 0}
@@ -100,17 +91,18 @@ body.dark .hero p{color:var(--muted)}
 .empty{text-align:center;color:var(--muted);padding:30px;grid-column:1/-1}
 .story{background:var(--cream)}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
-.story-art{min-height:390px;border-radius:22px;background:radial-gradient(circle at 25% 25%,#b6c5a5,#61765c);display:flex;align-items:center;justify-content:center;font-size:115px}
+.story-art{min-height:390px;border-radius:22px;background:radial-gradient(circle at 25% 25%,#b6c5a5,#61765c);display:flex;align-items:center;justify-content:center}
+.story-art img{max-width:75%;border-radius:12px;border:1px solid #ffffff88}
 .story-copy h2{font:42px Georgia,serif;font-weight:400;margin:12px 0 20px}
 .story-copy p{color:var(--muted);margin-bottom:15px}
 .values{grid-template-columns:repeat(3,1fr)}
 .value{padding:28px;border:1px solid var(--border);border-radius:18px;background:var(--card);text-align:center}
-.value .emoji{font-size:35px}
+.value .num{font-size:30px;color:var(--green);font-weight:bold;margin-bottom:10px;display:block}
 .value h3{font:22px Georgia,serif;margin:12px}
 .value p{color:var(--muted);font-size:14px}
 .ingredients{grid-template-columns:repeat(4,1fr)}
 .ingredient{text-align:center;padding:24px}
-.ingredient div{font-size:55px;margin-bottom:10px}
+.ingredient .ing-img{width:70px;height:70px;border-radius:50%;background:var(--cream);margin:0 auto 12px;border:1px solid var(--border);object-fit:contain}
 .ingredient h3{font:22px Georgia,serif}
 .ingredient p{color:var(--muted);font-size:13px}
 .quiz{background:var(--cream);border-radius:26px;padding:clamp(22px,5vw,48px);max-width:850px;margin:auto}
@@ -134,12 +126,11 @@ body.dark .hero p{color:var(--muted)}
 .team-card p{font-size:12px;color:var(--muted);padding:0 12px 16px}
 .testimonials{grid-template-columns:repeat(3,1fr)}
 .quote{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:25px}
-.quote .stars{color:#c39b5d}
+.quote .rating{color:#c39b5d;font-weight:bold}
 .quote p{font-family:Georgia,serif;font-size:17px;margin:12px 0}
 .quote small{color:var(--muted)}
 .tips{grid-template-columns:repeat(3,1fr)}
 .tip{background:var(--card);border-radius:17px;padding:22px;border:1px solid var(--border)}
-.tip .emoji{font-size:35px}
 .tip h3{font:22px Georgia,serif;margin:10px 0}
 .tip p{font-size:13px;color:var(--muted)}
 .faq{max-width:800px;margin:auto}
@@ -157,8 +148,8 @@ footer a{display:block;color:#d8dfd1;font-size:13px;margin:8px 0}
 footer p{color:#c5cdbd;font-size:13px}
 footer h3{font:23px Georgia,serif;margin-bottom:14px}
 .footer-bottom{border-top:1px solid #ffffff22;margin-top:35px;padding-top:20px;text-align:center;font-size:12px;color:#bfc9b9}
-.floating-wa{position:fixed;bottom:20px;right:20px;z-index:150;background:#25d366;color:#fff;width:57px;height:57px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 5px 20px #0002}
-.top-btn{position:fixed;bottom:88px;right:24px;border:0;border-radius:50%;width:42px;height:42px;background:var(--green);color:white;display:none;z-index:120}
+.floating-wa{position:fixed;bottom:20px;right:20px;z-index:150;background:#25d366;color:#fff;width:57px;height:57px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;box-shadow:0 5px 20px #0002}
+.top-btn{position:fixed;bottom:88px;right:24px;border:0;border-radius:50%;width:42px;height:42px;background:var(--green);color:white;display:none;z-index:120;display:grid;place-items:center;font-size:16px;font-weight:bold}
 .toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,100px);opacity:0;background:var(--green);color:white;padding:13px 22px;border-radius:30px;z-index:300;transition:.3s;box-shadow:var(--shadow)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .overlay{position:fixed;inset:0;background:#0007;z-index:200;display:none}
@@ -172,12 +163,12 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
 .drawer-item .info{flex:1}
 .drawer-item small{color:var(--muted)}
 .qty{display:flex;align-items:center;gap:8px}
-.qty button{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:50%;width:26px;height:26px}
+.qty button{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:50%;width:26px;height:26px;display:grid;place-items:center}
 .cart-total{display:flex;justify-content:space-between;font-size:19px;font-weight:bold;margin:20px 0}
 .modal{position:fixed;inset:0;z-index:250;display:none;align-items:center;justify-content:center;padding:18px}
 .modal.show{display:flex}
 .modal-box{background:var(--card);color:var(--text);border-radius:20px;max-width:700px;width:100%;max-height:90vh;overflow:auto;padding:25px;position:relative}
-.modal-close{position:absolute;right:15px;top:12px;border:0;background:var(--cream);color:var(--text);border-radius:50%;width:35px;height:35px}
+.modal-close{position:absolute;right:15px;top:12px;border:0;background:var(--cream);color:var(--text);border-radius:50%;width:35px;height:35px;display:grid;place-items:center;font-size:16px}
 .modal-product{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;padding-top:25px}
 .modal-product img{width:100%;height:300px;object-fit:contain;background:var(--cream);border-radius:15px}
 .modal-product h2{font:28px Georgia,serif;margin:10px 0}
@@ -217,16 +208,16 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
 
 <header>
  <div class="container nav">
-  <a class="brand" href="#inicio">ALTHÉA<small>HAIR · BOTANICAL CARE</small></a>
+  <a class="brand" href="#inicio"><img src="logo.png" alt="Logo Althéa Hair" onerror="this.style.display='none'">ALTHÉA<small>HAIR · BOTANICAL CARE</small></a>
   <nav class="nav-links" id="navlinks">
    <a href="#inicio">Inicio</a><a href="#colecciones">Colecciones</a>
    <a href="#productos">Productos</a><a href="#nosotros">Nosotros</a>
    <a href="#quiz">Quiz capilar</a><a href="#contacto">Contacto</a>
   </nav>
   <div class="nav-actions">
-   <button class="icon-btn" onclick="toggleDark()" title="Cambiar tema">◐</button>
-   <button class="icon-btn" onclick="openCart()" title="Carrito">🛍<span class="cart-badge" id="cartCount">0</span></button>
-   <button class="icon-btn menu-btn" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+   <button class="icon-btn" onclick="toggleDark()" title="Cambiar tema">Tema</button>
+   <button class="icon-btn" onclick="openCart()" title="Carrito">Carrito<span class="cart-badge" id="cartCount">0</span></button>
+   <button class="icon-btn menu-btn" onclick="document.getElementById('navlinks').classList.toggle('open')" title="Menu">Menu</button>
   </div>
  </div>
 </header>
@@ -235,37 +226,38 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
 <section class="hero" id="inicio">
  <div class="container hero-inner">
   <div class="hero-copy fade">
-   <span class="eyebrow">Rituales botánicos · Cuidado consciente</span>
+   <span class="eyebrow">Rituales botanicos · Cuidado consciente</span>
    <h1>Tu cabello.<br><em>Tu esencia.</em><br>Tu ritual.</h1>
-   <p>Descubre una experiencia capilar inspirada en la naturaleza. Fórmulas, texturas y rutinas para acompañar la autenticidad de cada cabello.</p>
+   <p>Descubre una experiencia capilar inspirada en la naturaleza. Formulas, texturas y rutinas para acompañar la autenticidad de cada cabello.</p>
    <div class="hero-actions">
     <a href="#productos" class="btn btn-primary">Explorar productos ↗</a>
     <a href="#nosotros" class="btn btn-outline">Conocer nuestra historia</a>
    </div>
   </div>
   <div class="hero-art fade">
-   <div class="floating f1">🌿</div><div class="floating f2">🍃</div>
-   <div class="hero-logo"><span>✿</span><strong>Althéa</strong><small>BOTANICAL HAIR CARE</small></div>
+   <img src="laverde.png" alt="Althéa Hair" onerror="this.style.display='none'">
   </div>
  </div>
 </section>
 
-<div class="marquee"><span> ✦ CUIDADO CONSCIENTE ✦ RITUALES BOTÁNICOS ✦ TU CABELLO, TU ESENCIA ✦ ALTHÉA HAIR ✦ CUIDADO CONSCIENTE ✦ RITUALES BOTÁNICOS ✦ TU CABELLO, TU ESENCIA ✦ ALTHÉA HAIR ✦ </span></div>
+<div class="marquee"><span> CUIDADO CONSCIENTE  RITUALES BOTANICOS  TU CABELLO, TU ESENCIA  ALTHÉA HAIR  CUIDADO CONSCIENTE  RITUALES BOTANICOS  TU CABELLO, TU ESENCIA  ALTHÉA HAIR </span></div>
 
 <section class="section" id="colecciones">
  <div class="container">
   <h2 class="section-title">Nuestras colecciones</h2>
-  <p class="section-subtitle">Dos universos botánicos creados para acompañar tus momentos de cuidado.</p>
+  <p class="section-subtitle">Dos universos botanicos creados para acompañar tus momentos de cuidado.</p>
   <div class="grid collections">
    <article class="collection c1">
-    <span class="plant">🌾🍫</span><span class="eyebrow" style="color:white">Colección 01</span>
-    <h3>Cebada y cacao</h3><p>Un ritual inspirado en la calidez de la tierra y la riqueza de ingredientes botánicos.</p>
-    <button class="btn btn-light" onclick="setCollection('Cebada y cacao')">Descubrir colección ↗</button>
+    <img class="art" src="mascarilla de cebada y cacao.jpg" alt="Cebada y cacao" onerror="this.style.display='none'">
+    <span class="eyebrow" style="color:white">Coleccion 01</span>
+    <h3>Cebada y cacao</h3><p>Un ritual inspirado en la calidez de la tierra y la riqueza de ingredientes botanicos.</p>
+    <button class="btn btn-light" onclick="setCollection('Cebada y cacao')">Descubrir coleccion ↗</button>
    </article>
    <article class="collection c2">
-    <span class="plant">🌼🥭</span><span class="eyebrow" style="color:white">Colección 02</span>
-    <h3>Maracuyá y almendra</h3><p>Una propuesta sensorial que celebra la frescura, el cuidado y la naturaleza.</p>
-    <button class="btn btn-light" onclick="setCollection('Maracuyá y almendra')">Descubrir colección ↗</button>
+    <img class="art" src="mascarilla de maracuya y almendra.jpg" alt="Maracuya y almendra" onerror="this.style.display='none'">
+    <span class="eyebrow" style="color:white">Coleccion 02</span>
+    <h3>Maracuya y almendra</h3><p>Una propuesta sensorial que celebra la frescura, el cuidado y la naturaleza.</p>
+    <button class="btn btn-light" onclick="setCollection('Maracuya y almendra')">Descubrir coleccion ↗</button>
    </article>
   </div>
  </div>
@@ -276,20 +268,20 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
   <h2 class="section-title">Encuentra tu ritual</h2>
   <p class="section-subtitle">Explora nuestros productos y crea una rutina que acompañe las necesidades de tu cabello.</p>
   <div class="product-toolbar">
-   <input id="search" class="field" placeholder="⌕ Buscar producto..." oninput="renderProducts()">
+   <input id="search" class="field" placeholder="Buscar producto..." oninput="renderProducts()">
    <select id="filter" class="field" onchange="renderProducts()">
     <option value="">Todas las colecciones</option>
-    <option>Cebada y cacao</option><option>Maracuyá y almendra</option>
+    <option>Cebada y cacao</option><option>Maracuya y almendra</option>
    </select>
    <select id="category" class="field" onchange="renderProducts()">
-    <option value="">Todas las categorías</option>
+    <option value="">Todas las categorias</option>
     <option>Shampoo</option><option>Acondicionador</option><option>Mascarilla</option>
     <option>Crema de peinar</option><option>Mousse</option><option>Gel</option>
    </select>
    <select id="sort" class="field" onchange="renderProducts()">
     <option value="default">Orden recomendado</option><option value="asc">Precio menor</option><option value="desc">Precio mayor</option><option value="name">Nombre A-Z</option>
    </select>
-   <button class="btn btn-outline" onclick="showFavs()">♡ Favoritos</button>
+   <button class="btn btn-outline" onclick="showFavs()">Favoritos</button>
    <button class="btn btn-outline" onclick="clearFilters()">Limpiar</button>
   </div>
   <div id="productGrid" class="grid product-grid"></div>
@@ -298,13 +290,15 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
 
 <section class="section story" id="nosotros">
  <div class="container story-grid">
-  <div class="story-art fade">🌿🍫🌾</div>
+  <div class="story-art fade">
+   <img src="laverde.png" alt="Esencia Althéa" onerror="this.style.display='none'">
+  </div>
   <div class="story-copy">
    <span class="eyebrow">Nuestra esencia</span>
    <h2>Una historia que nace de una necesidad</h2>
-   <p>Althéa Hair nació en 2026, de la experiencia de un equipo de personas con cabello rizado que buscaba productos capilares que respondieran a sus necesidades y que no siempre encontraba fácilmente.</p>
-   <p>Decidimos convertir esa búsqueda en una propuesta: una marca que celebra los diferentes tipos de cabello, el cuidado consciente y la conexión con ingredientes inspirados en la naturaleza.</p>
-   <p>Queremos que cada persona encuentre en su rutina un momento para cuidarse, descubrir su cabello y sentirse cómoda con su propia esencia.</p>
+   <p>Althéa Hair nacio en 2026, de la experiencia de un equipo de personas con cabello rizado que buscaba productos capilares que respondieran a sus necesidades y que no siempre encontraba facilmente.</p>
+   <p>Decidimos convertir esa busqueda en una propuesta: una marca que celebra los diferentes tipos de cabello, el cuidado consciente y la conexion con ingredientes inspirados en la naturaleza.</p>
+   <p>Queremos que cada persona encuentre en su rutina un momento para cuidarse, descubrir su cabello y sentirse comoda con su propia esencia.</p>
    <a href="#equipo" class="btn btn-primary">Conoce nuestro equipo ↗</a>
   </div>
  </div>
@@ -313,11 +307,11 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
 <section class="section">
  <div class="container">
   <h2 class="section-title">¿Por qué elegir Althéa?</h2>
-  <p class="section-subtitle">Más que productos, una experiencia pensada para tu cuidado.</p>
+  <p class="section-subtitle">Mas que productos, una experiencia pensada para tu cuidado.</p>
   <div class="grid values">
-   <article class="value"><div class="emoji">🌿</div><h3>Inspiración botánica</h3><p>Ingredientes protagonistas que inspiran nuestras colecciones y la identidad de la marca.</p></article>
-   <article class="value"><div class="emoji">🧴</div><h3>Rutinas completas</h3><p>Productos para acompañar diferentes momentos de tu rutina capilar.</p></article>
-   <article class="value"><div class="emoji">♡</div><h3>Cuidado auténtico</h3><p>Una marca creada desde experiencias reales y el deseo de encontrar un cuidado cercano.</p></article>
+   <article class="value"><span class="num">01</span><h3>Inspiración botánica</h3><p>Ingredientes protagonistas que inspiran nuestras colecciones y la identidad de la marca.</p></article>
+   <article class="value"><span class="num">02</span><h3>Rutinas completas</h3><p>Productos para acompañar diferentes momentos de tu rutina capilar.</p></article>
+   <article class="value"><span class="num">03</span><h3>Cuidado auténtico</h3><p>Una marca creada desde experiencias reales y el deseo de encontrar un cuidado cercano.</p></article>
   </div>
  </div>
 </section>
@@ -325,20 +319,20 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
 <section class="section" id="ingredientes">
  <div class="container">
   <h2 class="section-title">Ingredientes que nos inspiran</h2>
-  <p class="section-subtitle">Descubre los protagonistas de nuestros universos botánicos.</p>
+  <p class="section-subtitle">Descubre los protagonistas de nuestros universos botanicos.</p>
   <div class="grid ingredients">
-   <article class="ingredient"><div>🍫</div><h3>Cacao</h3><p>Parte de nuestra colección Cebada y cacao.</p></article>
-   <article class="ingredient"><div>🌾</div><h3>Cebada</h3><p>Inspiración natural para nuestro primer ritual.</p></article>
-   <article class="ingredient"><div>🥭</div><h3>Maracuyá</h3><p>El ingrediente que inspira frescura en nuestra colección.</p></article>
-   <article class="ingredient"><div>🌰</div><h3>Almendra</h3><p>Parte de nuestro universo Maracuyá y almendra.</p></article>
+   <article class="ingredient"><img class="ing-img" src="mascarilla de cebada y cacao.jpg" alt="Cacao" onerror="this.style.display='none'"><h3>Cacao</h3><p>Parte de nuestra coleccion Cebada y cacao.</p></article>
+   <article class="ingredient"><img class="ing-img" src="acondicionador de cebada y cacao.jpg" alt="Cebada" onerror="this.style.display='none'"><h3>Cebada</h3><p>Inspiracion natural para nuestro primer ritual.</p></article>
+   <article class="ingredient"><img class="ing-img" src="mousse de maracuya y almendra.jpg" alt="Maracuya" onerror="this.style.display='none'"><h3>Maracuya</h3><p>El ingrediente que inspira frescura en nuestra coleccion.</p></article>
+   <article class="ingredient"><img class="ing-img" src="crema de peinar de maracuya y almendra.jpg" alt="Almendra" onerror="this.style.display='none'"><h3>Almendra</h3><p>Parte de nuestro universo Maracuya y almendra.</p></article>
   </div>
  </div>
 </section>
 
 <section class="section" id="quiz">
  <div class="container">
-  <h2 class="section-title">Tu cabello, tu diagnóstico</h2>
-  <p class="section-subtitle">Responde unas preguntas y descubre una recomendación de rutina Althéa.</p>
+  <h2 class="section-title">Tu cabello, tu diagnostico</h2>
+  <p class="section-subtitle">Responde unas preguntas y descubre una recomendacion de rutina Althéa.</p>
   <div class="quiz" id="quizBox">
    <div id="quizContent"></div>
   </div>
@@ -350,23 +344,23 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
   <h2 class="section-title">Rituales para acompañarte</h2>
   <p class="section-subtitle">Un ritual sencillo para comenzar. Ajusta los pasos a las indicaciones de cada producto.</p>
   <div class="grid values">
-   <article class="value"><div class="emoji">①</div><h3>Limpia</h3><p>Comienza con shampoo y masajea suavemente el cuero cabelludo. Enjuaga.</p></article>
-   <article class="value"><div class="emoji">②</div><h3>Acondiciona</h3><p>Aplica acondicionador o mascarilla según tu rutina y las instrucciones del envase.</p></article>
-   <article class="value"><div class="emoji">③</div><h3>Define</h3><p>Complementa con crema, mousse o gel para darle forma a tu peinado.</p></article>
+   <article class="value"><span class="num">01</span><h3>Limpia</h3><p>Comienza con shampoo y masajea suavemente el cuero cabelludo. Enjuaga.</p></article>
+   <article class="value"><span class="num">02</span><h3>Acondiciona</h3><p>Aplica acondicionador o mascarilla segun tu rutina y las instrucciones del envase.</p></article>
+   <article class="value"><span class="num">03</span><h3>Define</h3><p>Complementa con crema, mousse o gel para darle forma a tu peinado.</p></article>
   </div>
  </div>
 </section>
 
 <section class="section story" id="equipo">
  <div class="container">
-  <h2 class="section-title">El equipo detrás de Althéa</h2>
-  <p class="section-subtitle">Cinco personas, diferentes talentos y una misma visión.</p>
+  <h2 class="section-title">El equipo detras de Althéa</h2>
+  <p class="section-subtitle">Cinco personas, diferentes talentos y una misma vision.</p>
   <div class="grid team-grid">
-   <article class="team-card"><img src="mari.jpg" alt="Mari" onerror="this.style.display='none'"><h3>Mari</h3><p>Gerente y figura jurídica</p></article>
-   <article class="team-card"><img src="samu.jpg" alt="Samu" onerror="this.style.display='none'"><h3>Samu</h3><p>Publicidad y marketing</p></article>
-   <article class="team-card"><img src="jun.jpg" alt="Jun" onerror="this.style.display='none'"><h3>Jun</h3><p>Contador público</p></article>
-   <article class="team-card"><img src="jai.jpg" alt="Jai" onerror="this.style.display='none'"><h3>Jai</h3><p>Directora de investigación, formulación y desarrollo de productos capilares</p></article>
-   <article class="team-card"><img src="sarah.jpg" alt="Sarah" onerror="this.style.display='none'"><h3>Sarah</h3><p>Directora logística</p></article>
+   <article class="team-card"><img src="mari.jpg" alt="Mari" onerror="this.src='mari.png';this.onerror=null;"><h3>Mari</h3><p>Gerente y figura jurídica</p></article>
+   <article class="team-card"><img src="laverde.png" alt="Samu" onerror="this.style.display='none'"><h3>Samu</h3><p>Publicidad y marketing</p></article>
+   <article class="team-card"><img src="juan luis.png" alt="Jun" onerror="this.style.display='none'"><h3>Jun</h3><p>Contador público</p></article>
+   <article class="team-card"><img src="jai.png" alt="Jai" onerror="this.style.display='none'"><h3>Jai</h3><p>Directora de investigacion, formulacion y desarrollo de productos capilares</p></article>
+   <article class="team-card"><img src="sarah.png" alt="Sarah" onerror="this.style.display='none'"><h3>Sarah</h3><p>Directora logística</p></article>
   </div>
  </div>
 </section>
@@ -376,21 +370,21 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
   <h2 class="section-title">Experiencias que nos inspiran</h2>
   <p class="section-subtitle">Cada rutina es diferente. Queremos acompañarte a descubrir la tuya.</p>
   <div class="grid testimonials">
-   <article class="quote"><span class="stars">★★★★★</span><p>“El cuidado capilar también puede convertirse en un momento especial para mí.”</p><small>— Comunidad Althéa</small></article>
-   <article class="quote"><span class="stars">★★★★★</span><p>“Me encanta poder conocer los productos y pensar en una rutina que se adapte a mi cabello.”</p><small>— Comunidad Althéa</small></article>
-   <article class="quote"><span class="stars">★★★★★</span><p>“Los ingredientes y el concepto botánico hacen que la marca se sienta cercana y diferente.”</p><small>— Comunidad Althéa</small></article>
+   <article class="quote"><span class="rating">5 de 5</span><p>"El cuidado capilar también puede convertirse en un momento especial para mí."</p><small>— Comunidad Althéa</small></article>
+   <article class="quote"><span class="rating">5 de 5</span><p>"Me encanta poder conocer los productos y pensar en una rutina que se adapte a mi cabello."</p><small>— Comunidad Althéa</small></article>
+   <article class="quote"><span class="rating">5 de 5</span><p>"Los ingredientes y el concepto botanico hacen que la marca se sienta cercana y diferente."</p><small>— Comunidad Althéa</small></article>
   </div>
  </div>
 </section>
 
 <section class="section" id="blog">
  <div class="container">
-  <h2 class="section-title">Pequeños consejos, grandes rituales</h2>
+  <h2 class="section-title">Pequenos consejos, grandes rituales</h2>
   <p class="section-subtitle">Ideas sencillas para aprender y disfrutar de tu rutina.</p>
   <div class="grid tips">
-   <article class="tip"><div class="emoji">💧</div><h3>Conoce tu cabello</h3><p>Observa cómo responde tu cabello a los productos, al clima y a los diferentes pasos de tu rutina.</p></article>
-   <article class="tip"><div class="emoji">🫧</div><h3>Limpieza consciente</h3><p>Usa shampoo según tus necesidades y masajea suavemente, sin frotar de forma brusca.</p></article>
-   <article class="tip"><div class="emoji">🌱</div><h3>Construye tu rutina</h3><p>Empieza con pocos pasos y agrega productos cuando realmente los necesites.</p></article>
+   <article class="tip"><h3>Conoce tu cabello</h3><p>Observa cómo responde tu cabello a los productos, al clima y a los diferentes pasos de tu rutina.</p></article>
+   <article class="tip"><h3>Limpieza consciente</h3><p>Usa shampoo según tus necesidades y masajea suavemente, sin frotar de forma brusca.</p></article>
+   <article class="tip"><h3>Construye tu rutina</h3><p>Empieza con pocos pasos y agrega productos cuando realmente los necesites.</p></article>
   </div>
  </div>
 </section>
@@ -399,9 +393,9 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
  <div class="container faq">
   <h2 class="section-title">Preguntas frecuentes</h2>
   <p class="section-subtitle">Estamos aquí para ayudarte.</p>
-  <details><summary>¿Cómo puedo elegir mis productos?</summary><p>Explora el catálogo o realiza nuestro quiz capilar para obtener una sugerencia inicial de productos y rutina.</p></details>
+  <details><summary>¿Cómo puedo elegir mis productos?</summary><p>Explora el catalogo o realiza nuestro quiz capilar para obtener una sugerencia inicial de productos y rutina.</p></details>
   <details><summary>¿Cómo puedo realizar un pedido?</summary><p>Agrega productos al carrito y envía tu pedido por WhatsApp para consultar disponibilidad, confirmar precios y coordinar la compra.</p></details>
-  <details><summary>¿Qué colecciones tiene Althéa Hair?</summary><p>Actualmente contamos con Cebada y cacao, y Maracuyá y almendra.</p></details>
+  <details><summary>¿Qué colecciones tiene Althéa Hair?</summary><p>Actualmente contamos con Cebada y cacao, y Maracuya y almendra.</p></details>
   <details><summary>¿Cómo se utilizan los productos?</summary><p>Consulta las instrucciones y precauciones indicadas en cada producto. Puedes escribirnos si necesitas ayuda con tu rutina.</p></details>
   <details><summary>¿Puedo pedir recomendaciones personalizadas?</summary><p>¡Claro! Escríbenos por WhatsApp y cuéntanos qué buscas en tu rutina capilar.</p></details>
  </div>
@@ -414,9 +408,9 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
   <div class="grid contact-grid">
    <article class="contact-card">
     <h3 style="font:30px Georgia,serif">Estamos cerca de ti</h3>
-    <p>♡ Escríbenos, será un gusto ayudarte a conocer Althéa Hair.</p>
-    <p>📱 WhatsApp: +57 314 329 3083</p>
-    <p>🌿 Cuidado botánico, inspiración y rituales capilares.</p>
+    <p>Escribenos, será un gusto ayudarte a conocer Althéa Hair.</p>
+    <p>Whatsapp: +57 314 329 3083</p>
+    <p>Cuidado botanico, inspiracion y rituales capilares.</p>
     <a class="btn btn-primary" target="_blank" href="https://wa.me/573143293083">Contactar por WhatsApp ↗</a>
    </article>
    <form class="contact-card" onsubmit="sendContact(event)">
@@ -435,42 +429,42 @@ footer h3{font:23px Georgia,serif;margin-bottom:14px}
 <footer>
  <div class="container">
   <div class="footer-grid">
-   <div><h3>Althéa Hair</h3><p>Tu cabello. Tu esencia. Tu ritual.<br>Una inspiración botánica para acompañarte.</p></div>
+   <div><h3>Althéa Hair</h3><p>Tu cabello. Tu esencia. Tu ritual.<br>Una inspiración botanica para acompañarte.</p></div>
    <div><h3>Explora</h3><a href="#productos">Productos</a><a href="#colecciones">Colecciones</a><a href="#quiz">Quiz capilar</a><a href="#nosotros">Nuestra historia</a></div>
    <div><h3>Conecta</h3><a href="#contacto">Contacto</a><a target="_blank" href="https://wa.me/573143293083">WhatsApp</a><a href="#blog">Consejos capilares</a></div>
   </div>
-  <div class="footer-bottom">© 2026 Althéa Hair · Cuidado capilar botánico · Todos los derechos reservados</div>
+  <div class="footer-bottom">© 2026 Althéa Hair · Cuidado capilar botanico · Todos los derechos reservados</div>
  </div>
 </footer>
 
-<a class="floating-wa" target="_blank" href="https://wa.me/573143293083" aria-label="WhatsApp">◉</a>
-<button class="top-btn" id="topBtn" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<a class="floating-wa" target="_blank" href="https://wa.me/573143293083" aria-label="WhatsApp">WhatsApp</a>
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Subir</button>
 <div class="toast" id="toast"></div>
 <div class="overlay" id="overlay" onclick="closeCart()"></div>
 <aside class="drawer" id="drawer">
- <div class="drawer-head"><h2>Tu carrito ♡</h2><button class="icon-btn" onclick="closeCart()">✕</button></div>
+ <div class="drawer-head"><h2>Tu carrito</h2><button class="icon-btn" onclick="closeCart()">Cerrar</button></div>
  <div id="cartItems"></div><div class="cart-total"><span>Total</span><span id="cartTotal">$0</span></div>
  <button class="btn btn-primary" style="width:100%" onclick="checkout()">Continuar por WhatsApp ↗</button>
  <p style="font-size:12px;color:var(--muted);margin-top:12px">La disponibilidad y el envío se confirman al contactarnos.</p>
 </aside>
 <div class="modal" id="productModal" onclick="if(event.target===this)closeModal()">
- <div class="modal-box"><button class="modal-close" onclick="closeModal()">✕</button><div id="modalContent"></div></div>
+ <div class="modal-box"><button class="modal-close" onclick="closeModal()">Cerrar</button><div id="modalContent"></div></div>
 </div>
 
 <script>
 const productos=[
-{id:1,coleccion:'Cebada y cacao',categoria:'Shampoo',nombre:'Shampoo de cebada y cacao',img:'Shampoo de cebada y cacao.jpg',desc:'Limpieza capilar para comenzar tu ritual botánico con la colección Cebada y cacao.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar sobre cabello mojado, masajear suavemente y enjuagar. Repetir si se desea.',presentacion:'450 ml',precio:44950,necesidad:'Limpieza'},
-{id:2,coleccion:'Cebada y cacao',categoria:'Acondicionador',nombre:'Acondicionador de cebada y cacao',img:'acondicionador de cebada y cacao.jpg',desc:'Acondicionamiento para acompañar el desenredado y la suavidad en tu rutina.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar de medios a puntas después del shampoo, dejar actuar según la etiqueta y enjuagar.',presentacion:'450 ml',precio:45725,necesidad:'Acondicionamiento'},
-{id:3,coleccion:'Cebada y cacao',categoria:'Mascarilla',nombre:'Mascarilla de cebada y cacao',img:'mascarilla de cebada y cacao.jpg',desc:'Un paso de cuidado más profundo para complementar tu rutina semanal.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar sobre cabello limpio siguiendo el tiempo indicado en la etiqueta y enjuagar.',presentacion:'1 kg',precio:55800,necesidad:'Tratamiento'},
-{id:4,coleccion:'Cebada y cacao',categoria:'Crema de peinar',nombre:'Crema de peinar de cebada y cacao',img:'crema de peinar de cebada y cacao.jpg',desc:'Acompaña el peinado y ayuda a manejar la fibra durante tu rutina.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; fórmula por confirmar).',uso:'Distribuir una pequeña cantidad sobre cabello húmedo o seco según instrucciones del producto.',presentacion:'450 ml',precio:50375,necesidad:'Peinado'},
-{id:5,coleccion:'Cebada y cacao',categoria:'Mousse',nombre:'Mousse de cebada y cacao',img:'mousse de cebada y cacao.jpg',desc:'Una opción de styling para acompañar el movimiento y la forma del peinado.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar sobre cabello húmedo y distribuir antes de estilizar, según etiqueta.',presentacion:'120 ml',precio:56575,necesidad:'Definición'},
-{id:6,coleccion:'Cebada y cacao',categoria:'Gel',nombre:'Gel de cebada y cacao',img:'gel de cebada y cacao.jpg',desc:'Para complementar el styling con fijación y control del peinado.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar la cantidad necesaria sobre cabello húmedo y estilizar.',presentacion:'450 ml',precio:43400,necesidad:'Fijación'},
-{id:7,coleccion:'Maracuyá y almendra',categoria:'Shampoo',nombre:'Shampoo de maracuyá y almendra',img:'Shampoo de maracuya y almendra.jpg',desc:'Limpieza capilar para comenzar el ritual botánico de Maracuyá y almendra.',ingredientes:'Extractos de maracuyá y almendra (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar sobre cabello mojado, masajear suavemente y enjuagar. Repetir si se desea.',presentacion:'500 ml',precio:44950,necesidad:'Limpieza'},
-{id:8,coleccion:'Maracuyá y almendra',categoria:'Acondicionador',nombre:'Acondicionador de maracuyá y almendra',img:'acondicionador de maracuya y almendra.jpg',desc:'Acondicionamiento para acompañar el desenredado y la suavidad.',ingredientes:'Extractos de maracuyá y almendra (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar de medios a puntas después del shampoo, dejar actuar según etiqueta y enjuagar.',presentacion:'450 ml',precio:45725,necesidad:'Acondicionamiento'},
-{id:9,coleccion:'Maracuyá y almendra',categoria:'Mascarilla',nombre:'Mascarilla de maracuyá y almendra',img:'mascarilla de maracuya y almendra.jpg',desc:'Un paso de tratamiento para complementar tu ritual de cuidado capilar.',ingredientes:'Extractos de maracuyá y almendra (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar sobre cabello limpio siguiendo el tiempo indicado en la etiqueta y enjuagar.',presentacion:'1 kg',precio:55800,necesidad:'Tratamiento'},
-{id:10,coleccion:'Maracuyá y almendra',categoria:'Crema de peinar',nombre:'Crema de peinar de maracuyá y almendra',img:'crema de peinar de maracuya y almendra.jpg',desc:'Acompaña el peinado y ayuda a manejar la fibra durante tu rutina.',ingredientes:'Extractos de maracuyá y almendra (propuesta de contenido; fórmula por confirmar).',uso:'Distribuir una pequeña cantidad sobre cabello húmedo o seco según instrucciones del producto.',presentacion:'450 ml',precio:50375,necesidad:'Peinado'},
-{id:11,coleccion:'Maracuyá y almendra',categoria:'Mousse',nombre:'Mousse de maracuyá y almendra',img:'mousse de maracuya y almendra.jpg',desc:'Una opción de styling para acompañar el movimiento y la forma del peinado.',ingredientes:'Extractos de maracuyá y almendra (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar sobre cabello húmedo y distribuir antes de estilizar, según etiqueta.',presentacion:'120 ml',precio:56575,necesidad:'Definición'},
-{id:12,coleccion:'Maracuyá y almendra',categoria:'Gel',nombre:'Gel de maracuyá y almendra',img:'gel de maracuya y almendra.jpg',desc:'Para complementar el styling con fijación y control del peinado.',ingredientes:'Extractos de maracuyá y almendra (propuesta de contenido; fórmula por confirmar).',uso:'Aplicar la cantidad necesaria sobre cabello húmedo y estilizar.',presentacion:'450 ml',precio:43400,necesidad:'Fijación'}
+{id:1,coleccion:'Cebada y cacao',categoria:'Shampoo',nombre:'Shampoo de cebada y cacao',img:'Shampoo de cebada y cacao.jpg',desc:'Limpieza capilar para comenzar tu ritual botanico con la coleccion Cebada y cacao.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; formula por confirmar).',uso:'Aplicar sobre cabello mojado, masajear suavemente y enjuagar. Repetir si se desea.',presentacion:'450 ml',precio:44950,necesidad:'Limpieza'},
+{id:2,coleccion:'Cebada y cacao',categoria:'Acondicionador',nombre:'Acondicionador de cebada y cacao',img:'acondicionador de cebada y cacao.jpg',desc:'Acondicionamiento para acompañar el desenredado y la suavidad en tu rutina.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; formula por confirmar).',uso:'Aplicar de medios a puntas después del shampoo, dejar actuar segun la etiqueta y enjuagar.',presentacion:'450 ml',precio:45725,necesidad:'Acondicionamiento'},
+{id:3,coleccion:'Cebada y cacao',categoria:'Mascarilla',nombre:'Mascarilla de cebada y cacao',img:'mascarilla de cebada y cacao.jpg',desc:'Un paso de cuidado más profundo para complementar tu rutina semanal.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; formula por confirmar).',uso:'Aplicar sobre cabello limpio siguiendo el tiempo indicado en la etiqueta y enjuagar.',presentacion:'1 kg',precio:55800,necesidad:'Tratamiento'},
+{id:4,coleccion:'Cebada y cacao',categoria:'Crema de peinar',nombre:'Crema de peinar de cebada y cacao',img:'crema de peinar de cebada y cacao.jpg',desc:'Acompaña el peinado y ayuda a manejar la fibra durante tu rutina.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; formula por confirmar).',uso:'Distribuir una pequeña cantidad sobre cabello húmedo o seco según instrucciones del producto.',presentacion:'450 ml',precio:50375,necesidad:'Peinado'},
+{id:5,coleccion:'Cebada y cacao',categoria:'Mousse',nombre:'Mousse de cebada y cacao',img:'mousse de cebada y cacao.jpg',desc:'Una opción de styling para acompañar el movimiento y la forma del peinado.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; formula por confirmar).',uso:'Aplicar sobre cabello húmedo y distribuir antes de estilizar, segun etiqueta.',presentacion:'120 ml',precio:56575,necesidad:'Definición'},
+{id:6,coleccion:'Cebada y cacao',categoria:'Gel',nombre:'Gel de cebada y cacao',img:'gel de cebada y cacao.jpg',desc:'Para complementar el styling con fijación y control del peinado.',ingredientes:'Extractos de cebada y cacao (propuesta de contenido; formula por confirmar).',uso:'Aplicar la cantidad necesaria sobre cabello húmedo y estilizar.',presentacion:'450 ml',precio:43400,necesidad:'Fijación'},
+{id:7,coleccion:'Maracuya y almendra',categoria:'Shampoo',nombre:'Shampoo de maracuya y almendra',img:'Shampoo de maracuya y almendra.jpg',desc:'Limpieza capilar para comenzar el ritual botanico de Maracuya y almendra.',ingredientes:'Extractos de maracuya y almendra (propuesta de contenido; formula por confirmar).',uso:'Aplicar sobre cabello mojado, masajear suavemente y enjuagar. Repetir si se desea.',presentacion:'500 ml',precio:44950,necesidad:'Limpieza'},
+{id:8,coleccion:'Maracuya y almendra',categoria:'Acondicionador',nombre:'Acondicionador de maracuya y almendra',img:'acondicionador de maracuya y almendra.jpg',desc:'Acondicionamiento para acompañar el desenredado y la suavidad.',ingredientes:'Extractos de maracuya y almendra (propuesta de contenido; formula por confirmar).',uso:'Aplicar de medios a puntas después del shampoo, dejar actuar segun etiqueta y enjuagar.',presentacion:'450 ml',precio:45725,necesidad:'Acondicionamiento'},
+{id:9,coleccion:'Maracuya y almendra',categoria:'Mascarilla',nombre:'Mascarilla de maracuya y almendra',img:'mascarilla de maracuya y almendra.jpg',desc:'Un paso de tratamiento para complementar tu ritual de cuidado capilar.',ingredientes:'Extractos de maracuya y almendra (propuesta de contenido; formula por confirmar).',uso:'Aplicar sobre cabello limpio siguiendo el tiempo indicado en la etiqueta y enjuagar.',presentacion:'1 kg',precio:55800,necesidad:'Tratamiento'},
+{id:10,coleccion:'Maracuya y almendra',categoria:'Crema de peinar',nombre:'Crema de peinar de maracuya y almendra',img:'crema de peinar de maracuya y almendra.jpg',desc:'Acompaña el peinado y ayuda a manejar la fibra durante tu rutina.',ingredientes:'Extractos de maracuya y almendra (propuesta de contenido; formula por confirmar).',uso:'Distribuir una pequeña cantidad sobre cabello húmedo o seco según instrucciones del producto.',presentacion:'450 ml',precio:50375,necesidad:'Peinado'},
+{id:11,coleccion:'Maracuya y almendra',categoria:'Mousse',nombre:'Mousse de maracuya y almendra',img:'mousse de maracuya y almendra.jpg',desc:'Una opción de styling para acompañar el movimiento y la forma del peinado.',ingredientes:'Extractos de maracuya y almendra (propuesta de contenido; formula por confirmar).',uso:'Aplicar sobre cabello húmedo y distribuir antes de estilizar, segun etiqueta.',presentacion:'120 ml',precio:56575,necesidad:'Definición'},
+{id:12,coleccion:'Maracuya y almendra',categoria:'Gel',nombre:'Gel de maracuya y almendra',img:'gel de maracuya y almendra.jpg',desc:'Para complementar el styling con fijación y control del peinado.',ingredientes:'Extractos de maracuya y almendra (propuesta de contenido; formula por confirmar).',uso:'Aplicar la cantidad necesaria sobre cabello húmedo y estilizar.',presentacion:'450 ml',precio:43400,necesidad:'Fijación'}
 ];
 
 const COP=n=>new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(n);
@@ -485,8 +479,8 @@ function toggleDark(){document.body.classList.toggle('dark');localStorage.setIte
 if(localStorage.getItem('althea-dark')==='true')document.body.classList.add('dark');
 function clearFilters(){document.getElementById('search').value='';document.getElementById('filter').value='';document.getElementById('category').value='';document.getElementById('sort').value='default';soloFav=false;coleccionActiva='';renderProducts()}
 function setCollection(c){document.getElementById('filter').value=c;soloFav=false;coleccionActiva=c;document.getElementById('productos').scrollIntoView({behavior:'smooth'});renderProducts()}
-function showFavs(){soloFav=!soloFav;toast(soloFav?'Mostrando favoritos ♡':'Mostrando catálogo');renderProducts()}
-function toggleFav(id){favoritos=favoritos.includes(id)?favoritos.filter(x=>x!==id):[...favoritos,id];save();renderProducts();toast(favoritos.includes(id)?'Guardado en favoritos ♡':'Eliminado de favoritos')}
+function showFavs(){soloFav=!soloFav;toast(soloFav?'Mostrando favoritos':'Mostrando catalogo');renderProducts()}
+function toggleFav(id){favoritos=favoritos.includes(id)?favoritos.filter(x=>x!==id):[...favoritos,id];save();renderProducts();toast(favoritos.includes(id)?'Guardado en favoritos':'Eliminado de favoritos')}
 function renderProducts(){
  let q=document.getElementById('search').value.toLowerCase(),f=document.getElementById('filter').value,c=document.getElementById('category').value,s=document.getElementById('sort').value;
  let list=productos.filter(p=>(!q||p.nombre.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q))&&(!f||p.coleccion===f)&&(!c||p.categoria===c)&&(!soloFav||favoritos.includes(p.id)));
@@ -494,12 +488,12 @@ function renderProducts(){
  document.getElementById('productGrid').innerHTML=list.length?list.map(p=>`
  <article class="product">
   <div class="product-image"><span class="product-tag">${p.coleccion}</span>
-   <button class="heart ${favoritos.includes(p.id)?'active':''}" onclick="toggleFav(${p.id})">${favoritos.includes(p.id)?'♥':'♡'}</button>
-   <img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div class=\\'fallback\\'>🌿</div>')">
+   <button class="fav ${favoritos.includes(p.id)?'active':''}" onclick="toggleFav(${p.id})">${favoritos.includes(p.id)?'Fav':'Fav'}</button>
+   <img src="${p.img}" alt="${p.nombre}" onerror="this.style.display='none'">
   </div>
   <div class="product-body"><small>${p.categoria} · ${p.presentacion}</small><h3>${p.nombre}</h3><p>${p.desc}</p><div class="price">${COP(p.precio)}</div>
   <div class="product-actions"><button class="btn btn-outline btn-sm" onclick="detail(${p.id})">Ver detalle</button><button class="btn btn-primary btn-sm" onclick="addCart(${p.id})">Añadir +</button></div></div>
- </article>`).join(''):`<div class="empty">No encontramos productos con esos filtros. Intenta otra búsqueda. ♡</div>`;
+ </article>`).join(''):`<div class="empty">No encontramos productos con esos filtros. Intenta otra busqueda.</div>`;
 }
 renderProducts();
 
@@ -516,7 +510,7 @@ function closeModal(){document.getElementById('productModal').classList.remove('
 
 function addCart(id){
  let it=carrito.find(x=>x.id===id);if(it)it.qty++;else carrito.push({id,qty:1});
- save();renderCart();toast('Producto añadido al carrito ♡')
+ save();renderCart();toast('Producto añadido al carrito')
 }
 function changeQty(id,d){let it=carrito.find(x=>x.id===id);if(!it)return;it.qty+=d;if(it.qty<=0)carrito=carrito.filter(x=>x.id!==id);save();renderCart()}
 function removeCart(id){carrito=carrito.filter(x=>x.id!==id);save();renderCart()}
@@ -526,8 +520,8 @@ function renderCart(){
  document.getElementById('cartItems').innerHTML=carrito.length?carrito.map(it=>{
  let p=productos.find(x=>x.id===it.id);if(!p)return '';
  total+=p.precio*it.qty;
- return `<div class="drawer-item"><img src="${p.img}" alt="" onerror="this.style.display='none'"><div class="info"><b>${p.nombre}</b><br><small>${COP(p.precio)}</small><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button>${it.qty}<button onclick="changeQty(${p.id},1)">+</button></div></div><button class="icon-btn" onclick="removeCart(${p.id})">✕</button></div>`;
- }).join(''):'<div class="empty">Tu carrito está vacío ♡<br>Descubre tu próximo ritual.</div>';
+ return `<div class="drawer-item"><img src="${p.img}" alt="" onerror="this.style.display='none'"><div class="info"><b>${p.nombre}</b><br><small>${COP(p.precio)}</small><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button>${it.qty}<button onclick="changeQty(${p.id},1)">+</button></div></div><button class="icon-btn" onclick="removeCart(${p.id})">X</button></div>`;
+ }).join(''):`<div class="empty">Tu carrito está vacío.<br>Descubre tu próximo ritual.</div>`;
  document.getElementById('cartTotal').textContent=COP(total)
 }
 renderCart();
@@ -549,26 +543,26 @@ function sendContact(e){
 
 /* QUIZ CAPILAR */
 const quiz=[
- {q:'¿Qué te gustaría priorizar en tu rutina?',a:[['🫧','Limpieza','limpieza'],['💧','Acondicionamiento','acondicionamiento'],['🌿','Tratamiento','tratamiento'],['✨','Peinado y definición','definicion']]},
- {q:'¿Qué productos te interesaría incorporar?',a:[['🧴','Shampoo y acondicionador','limpieza'],['🧖','Mascarilla','tratamiento'],['🌀','Crema de peinar','definicion'],['💫','Gel o mousse','definicion']]},
- {q:'¿Qué colección te llama más la atención?',a:[['🌾🍫','Cebada y cacao','cebada'],['🥭🌰','Maracuyá y almendra','maracuya'],['🌱','Quiero explorar ambas','ambas']] }
+ {q:'¿Qué te gustaría priorizar en tu rutina?',a:[['Limpieza','limpieza'],['Acondicionamiento','acondicionamiento'],['Tratamiento','tratamiento'],['Peinado y definición','definicion']]},
+ {q:'¿Qué productos te interesaría incorporar?',a:[['Shampoo y acondicionador','limpieza'],['Mascarilla','tratamiento'],['Crema de peinar','definicion'],['Gel o mousse','definicion']]},
+ {q:'¿Qué colección te llama más la atención?',a:[['Cebada y cacao','cebada'],['Maracuya y almendra','maracuya'],['Quiero explorar ambas','ambas']] }
 ];
 function renderQuiz(){
  let box=document.getElementById('quizContent');
  if(quizFinalizado){renderQuizResult();return}
  let q=quiz[quizPaso];
- box.innerHTML=`<span class="eyebrow">Pregunta ${quizPaso+1} de ${quiz.length}</span><div class="progress"><div style="width:${(quizPaso+1)/quiz.length*100}%"></div></div><h3>${q.q}</h3><div class="quiz-options">${q.a.map((a,i)=>`<button class="quiz-option ${quizRespuestas[quizPaso]===a[2]?'selected':''}" onclick="quizRespuestas[quizPaso]='${a[2]}';renderQuiz()"><b>${a[0]} ${a[1]}</b></button>`).join('')}</div><div class="quiz-controls"><button class="btn btn-outline" ${quizPaso===0?'disabled':''} onclick="quizPaso--;renderQuiz()">← Anterior</button><button class="btn btn-primary" ${!quizRespuestas[quizPaso]?'disabled':''} onclick="nextQuiz()">${quizPaso===quiz.length-1?'Ver recomendación':'Continuar →'}</button></div>`;
+ box.innerHTML=`<span class="eyebrow">Pregunta ${quizPaso+1} de ${quiz.length}</span><div class="progress"><div style="width:${(quizPaso+1)/quiz.length*100}%"></div></div><h3>${q.q}</h3><div class="quiz-options">${q.a.map((a,i)=>`<button class="quiz-option ${quizRespuestas[quizPaso]===a[1]?'selected':''}" onclick="quizRespuestas[quizPaso]='${a[1]}';renderQuiz()"><b>${a[0]}</b></button>`).join('')}</div><div class="quiz-controls"><button class="btn btn-outline" ${quizPaso===0?'disabled':''} onclick="quizPaso--;renderQuiz()">Anterior</button><button class="btn btn-primary" ${!quizRespuestas[quizPaso]?'disabled':''} onclick="nextQuiz()">${quizPaso===quiz.length-1?'Ver recomendacion':'Continuar'}</button></div>`;
 }
 function nextQuiz(){if(!quizRespuestas[quizPaso])return;if(quizPaso<quiz.length-1){quizPaso++;renderQuiz()}else{quizFinalizado=true;renderQuiz()}}
 function renderQuizResult(){
  let need=quizRespuestas.includes('tratamiento')?'tratamiento':quizRespuestas.includes('definicion')?'definicion':'limpieza';
- let collection=quizRespuestas.includes('cebada')?'Cebada y cacao':quizRespuestas.includes('maracuya')?'Maracuyá y almendra':'';
+ let collection=quizRespuestas.includes('cebada')?'Cebada y cacao':quizRespuestas.includes('maracuya')?'Maracuya y almendra':'';
  let picks=productos.filter(p=>(!collection||p.coleccion===collection)&&(['Shampoo','Acondicionador'].includes(p.categoria)||p.necesidad===(need==='tratamiento'?'Tratamiento':need==='definicion'?'Definición':'Limpieza')));
  if(!picks.length)picks=productos.filter(p=>!collection||p.coleccion===collection).slice(0,3);
  let ids=picks.slice(0,4).map(p=>p.id);
- document.getElementById('quizContent').innerHTML=`<div class="progress"><div style="width:100%"></div></div><div class="result"><span class="eyebrow">Tu recomendación Althéa</span><h4>Un ritual para explorar ♡</h4><p>Según tus respuestas, puedes comenzar con limpieza y acondicionamiento, y complementar con un producto de tratamiento o styling según tu interés. Esta es una sugerencia inicial; puedes ajustarla a las necesidades de tu cabello.</p><div class="result-products">${picks.slice(0,4).map(p=>`<button onclick="detail(${p.id})">${p.nombre}</button>`).join('')}</div><p style="margin-top:18px"><b>Tu colección:</b> ${collection||'Ambas colecciones'}</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="btn btn-primary" onclick="addRoutine(${JSON.stringify(ids)})">Agregar rutina sugerida</button><button class="btn btn-outline" onclick="restartQuiz()">Volver a hacer el quiz</button></div></div>`;
+ document.getElementById('quizContent').innerHTML=`<div class="progress"><div style="width:100%"></div></div><div class="result"><span class="eyebrow">Tu recomendacion Althéa</span><h4>Un ritual para explorar</h4><p>Según tus respuestas, puedes comenzar con limpieza y acondicionamiento, y complementar con un producto de tratamiento o styling segun tu interés. Esta es una sugerencia inicial; puedes ajustarla a las necesidades de tu cabello.</p><div class="result-products">${picks.slice(0,4).map(p=>`<button onclick="detail(${p.id})">${p.nombre}</button>`).join('')}</div><p style="margin-top:18px"><b>Tu coleccion:</b> ${collection||'Ambas colecciones'}</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="btn btn-primary" onclick="addRoutine(${JSON.stringify(ids)})">Agregar rutina sugerida</button><button class="btn btn-outline" onclick="restartQuiz()">Volver a hacer el quiz</button></div></div>`;
 }
-function addRoutine(ids){ids.forEach(id=>{let it=carrito.find(x=>x.id===id);if(it)it.qty++;else carrito.push({id,qty:1})});save();renderCart();toast('Rutina agregada al carrito ♡');openCart()}
+function addRoutine(ids){ids.forEach(id=>{let it=carrito.find(x=>x.id===id);if(it)it.qty++;else carrito.push({id,qty:1})});save();renderCart();toast('Rutina agregada al carrito');openCart()}
 function restartQuiz(){quizPaso=0;quizRespuestas=[];quizFinalizado=false;renderQuiz()}
 renderQuiz();
 
